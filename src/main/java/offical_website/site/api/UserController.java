@@ -1,8 +1,8 @@
 package offical_website.site.api;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
+import java.util.*;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -11,11 +11,18 @@ import io.swagger.annotations.ApiOperation;
 @RestController
 @RequestMapping(value = "/users")  
 public class UserController  {
+    static Map<Long, User> users = Collections.synchronizedMap(new HashMap<>());
 
     @GetMapping("/getUser")
-    @ApiOperation(value = "获取用户列表")
+    @ApiOperation(value = "获取用户列表",notes = "查询所有用户")
     public String getUser() {
         return "Hello World";
     }
 
+    @PostMapping("/")
+    @ApiOperation(value = "创建用户", notes = "根据User对象创建用户")
+    public String postUser(@Valid @RequestBody User user) {
+        users.put(user.getId(), user);
+        return "success";
+    }
 }
