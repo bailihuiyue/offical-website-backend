@@ -1,5 +1,6 @@
-package offical_website.site.api;
+package offical_website.site.controller;
 
+import offical_website.site.model.User;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.*;

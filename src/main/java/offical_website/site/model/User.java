@@ -1,4 +1,4 @@
-package offical_website.site.api;
+package offical_website.site.model;
 
 import java.util.Date;
 
@@ -14,18 +14,18 @@ import javax.validation.constraints.NotNull;
 public class User {
     @ApiModelProperty("用户编号")
     private Long id;
-//
-//    @ApiModelProperty("用户密码")
-//    private String Password;
-//
-//    @ApiModelProperty("是否激活")
-//    private Boolean IsAction;
-//
-//    @ApiModelProperty("创建时间")
-//    private Date CreateTime;
-//
-//    @ApiModelProperty("是否删除")
-//    private Boolean IsDeleted;
+
+    @ApiModelProperty("用户密码")
+    private String password;
+
+    @ApiModelProperty("是否激活")
+    private Boolean isAction;
+
+    @ApiModelProperty("创建时间")
+    private Date createTime;
+
+    @ApiModelProperty("是否删除")
+    private Boolean isDeleted;
 
     @NotNull(message="用户名不能为空")
     @ApiModelProperty("用户名")
