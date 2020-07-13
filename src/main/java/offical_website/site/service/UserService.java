@@ -1,4 +1,4 @@
-package offical_website.site.controller;
+package offical_website.site.service;
 
 import offical_website.site.model.User;
 
@@ -12,7 +12,7 @@ public interface UserService {
      * @param name
      * @param age
      */
-    int create(String name, Integer age);
+//    int create(String name, Integer age);
 
     /**
      * 根据name查询用户
@@ -20,23 +20,23 @@ public interface UserService {
      * @param name
      * @return
      */
-    List<User> getByName(String name);
+    User getByName(String name);
 
     /**
      * 根据name删除用户
      *
      * @param name
      */
-    int deleteByName(String name);
+//    int deleteByName(String name);
 
     /**
      * 获取用户总量
      */
-    int getAllUsers();
+//    int getAllUsers();
 
     /**
      * 删除所有用户
      */
-    int deleteAllUsers();
+//    int deleteAllUsers();
 
 }

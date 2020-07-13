@@ -1,21 +1,17 @@
-package offical_website.site.controller;
+package offical_website.site.dao;
 
 import offical_website.site.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
-/**
- * Created by 程序猿DD/翟永超 on 2020/2/15.
- * <p>
- * Blog: http://blog.didispace.com/
- * Github: https://github.com/dyc87112/
- */
+@Component
 @Mapper
 public interface UserMapper {
 
-    @Select("SELECT * FROM USER WHERE NAME = #{name}")
+    @Select("SELECT * FROM USER WHERE LOGINNAME = #{name}")
     User findByName(@Param("name") String name);
 
     @Insert("INSERT INTO USER(NAME, AGE) VALUES(#{name}, #{age})")
