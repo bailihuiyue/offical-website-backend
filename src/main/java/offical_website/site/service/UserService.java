@@ -21,7 +21,8 @@ public interface UserService {
      * @return
      */
     User getByName(String name);
-
+    User login(String name,String pwd);
+    List<User> getUserAll();
     /**
      * 根据name删除用户
      *
