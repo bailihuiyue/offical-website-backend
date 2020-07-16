@@ -12,4 +12,6 @@ public interface CaseService {
     int updateCase(long id, String img, String title, String content);
 
     List<Cases> getCaseAll();
+
+    Cases getCaseById(long id);
 }

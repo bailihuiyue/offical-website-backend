@@ -23,29 +23,36 @@ public class CaseController {
 
     @PostMapping("/CreateCases")
     @ApiOperation(value = "创建案例", notes = "创建案例")
-    public Result<Integer> createUser(@RequestHeader("token") String token, @Valid @RequestBody Cases casesModel) throws Exception {
+    public Result<Integer> createCases(@RequestHeader("token") String token, @Valid @RequestBody Cases casesModel) throws Exception {
         ApiException.invalidToken(token);
         return Result.success(caseService.createCase(casesModel.getImg(), casesModel.getTitle(), casesModel.getContent()));
     }
 
     @GetMapping("/DeleteCases")
     @ApiOperation(value = "删除案例", notes = "删除案例")
-    public Result<Integer> deleteUser(@RequestHeader("token") String token, @RequestParam int id) throws Exception {
+    public Result<Integer> deleteCases(@RequestHeader("token") String token, @RequestParam int id) throws Exception {
         ApiException.invalidToken(token);
         return Result.success(caseService.deleteCase(id));
     }
 
     @PostMapping("/ModifiedCases")
     @ApiOperation(value = "修改案例", notes = "创建案例")
-    public Result<Integer> updateUser(@RequestHeader("token") String token, @Valid @RequestBody Cases casesModel) throws Exception {
+    public Result<Integer> modifiedCases(@RequestHeader("token") String token, @Valid @RequestBody Cases casesModel) throws Exception {
         ApiException.invalidToken(token);
         return Result.success(caseService.updateCase(casesModel.getId(), casesModel.getImg(), casesModel.getTitle(), casesModel.getContent()));
     }
 
     @GetMapping("/GetCasesAll")
     @ApiOperation(value = "获取案例列表", notes = "查询所有案例")
-    public Result<List<Cases>> getUser(@RequestHeader("token") String token) throws Exception {
+    public Result<List<Cases>> getCasesAll(@RequestHeader("token") String token) throws Exception {
         ApiException.invalidToken(token);
         return Result.success(caseService.getCaseAll());
+    }
+
+    @GetMapping("/GetCasesById/{id}")
+    @ApiOperation(value = "获取案例列表", notes = "查询所有案例")
+    public Result<Cases> getCasesById(@RequestHeader("token") String token,@PathVariable long id) throws Exception {
+        ApiException.invalidToken(token);
+        return Result.success(caseService.getCaseById(id));
     }
 }

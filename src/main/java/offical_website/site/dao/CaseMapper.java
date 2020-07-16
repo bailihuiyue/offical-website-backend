@@ -20,4 +20,7 @@ public interface CaseMapper {
 
     @Select("SELECT * FROM CASES")
     List<Cases> getCaseAll();
+
+    @Select("SELECT * FROM CASES WHERE id= #{id}")
+    Cases getCaseById(@Param("id") long id);
 }

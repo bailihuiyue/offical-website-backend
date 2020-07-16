@@ -37,4 +37,10 @@ public class CaseServiceImpl implements CaseService {
         List<Cases> casesData = caseDataMapper.getCaseAll();
         return casesData;
     }
+
+    @Override
+    public Cases getCaseById(long id) {
+        Cases casesData = caseDataMapper.getCaseById(id);
+        return casesData;
+    }
 }
